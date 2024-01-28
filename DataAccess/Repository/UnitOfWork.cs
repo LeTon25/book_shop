@@ -18,9 +18,19 @@ namespace DataAccess.Repository
         public IShoppingCartRepository ShoppingCartRepo { get; private set; }
         public IApplicationUserRepository ApplicationUserRepo { get; private set; }
         public IOrderRepository OrderRepo { get; private set; } 
-        public IOrderDetailRepository   OrderDetailRepo { get; private set; }   
+        public IOrderDetailRepository   OrderDetailRepo { get; private set; }
 
-        public UnitOfWork(AppDbContext db)
+		public IPaymentDestinationRepository PaymentDestinationRepo { get; private set; }
+
+		public IPaymentRepository PaymentRepo { get; private set; }
+
+		public IPaymentTransactionRepository PaymentTransactionRepo { get; private set; }
+
+		public IPaymentSignatureRepository PaymentSignatureRepo { get; private set; }
+
+		public IPaymentNotificationRepository PaymentNotificationRepo { get; private set; }
+
+		public UnitOfWork(AppDbContext db)
         {
             _db = db;
             CategoryRepo = new CategoryRepository(_db);

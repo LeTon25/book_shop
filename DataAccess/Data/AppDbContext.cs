@@ -14,6 +14,12 @@ namespace BookyStore.DataAccess.Data
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }  
         public DbSet<Order> Orders { get; set; }    
         public DbSet<OrderDetail> OrderDetails { get; set; }    
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<PaymentDestination> PaymentDestinations { get; set; }
+        public DbSet<PaymentSignature > PaymentSignatures { get; set; }
+        public DbSet<PaymentTransaction> PaymentTransactions { get; set; }  
+        public DbSet<PaymentNotification> PaymentNotifications { get; set; }
+        
 		public AppDbContext(DbContextOptions<AppDbContext> options): base(options) 
 		{
 
