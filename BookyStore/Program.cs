@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Utility;
-using Utility.PaymentService.VNPay;
+using Models.VNPay;
 
 var builder = WebApplication.CreateBuilder(args);
 

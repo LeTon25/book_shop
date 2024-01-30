@@ -15,3 +15,5 @@ C:\Users\Toan\source\repos\BookyStore\DataAccess\obj\Debug\net7.0\refint\DataAcc
 C:\Users\Toan\source\repos\BookyStore\DataAccess\obj\Debug\net7.0\DataAccess.pdb
 C:\Users\Toan\source\repos\BookyStore\DataAccess\obj\Debug\net7.0\DataAccess.genruntimeconfig.cache
 C:\Users\Toan\source\repos\BookyStore\DataAccess\obj\Debug\net7.0\ref\DataAccess.dll
+C:\Users\Toan\source\repos\BookyStore\DataAccess\bin\Debug\net7.0\Utility.dll
+C:\Users\Toan\source\repos\BookyStore\DataAccess\bin\Debug\net7.0\Utility.pdb

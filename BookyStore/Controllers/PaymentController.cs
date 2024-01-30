@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.VNPay;
 using System.Security.Cryptography.X509Certificates;
 using Utility;
-using Utility.PaymentService.VNPay;
+
 
 namespace BookyStore.Controllers
 {
