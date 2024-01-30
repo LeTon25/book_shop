@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -24,5 +25,10 @@ namespace Models
 		public decimal? PaidAmount { get; set; }
 		public string? PaymentStatus { get; set; } = string.Empty;
 		public string? PaymentLastMessage { get; set; } = string.Empty;
+
+		public int? OrderID { get; set; }
+		[ForeignKey("OrderID")]
+		[ValidateNever]
+		public Order Order { get; set; }
 	}
 }

@@ -140,7 +140,7 @@ namespace BookyStore.Controllers
 				{
 					//REGULAR CUSTOMER
 					shoppingCartVM.Order.OrderStatus = SD.StatusPending;
-					shoppingCartVM.Order.PaymentStatus = SD.PaymentStatusPending;
+					shoppingCartVM.Order.PaymentStatus = SD.PaymentStatusApproved;
 				}
 				else
 				{
@@ -164,6 +164,10 @@ namespace BookyStore.Controllers
 					_unitOfWork.OrderDetailRepo.Add(orderDetail);
 					_unitOfWork.Save();
 				}
+                _unitOfWork.ShoppingCartRepo.DeleteRange(shoppingCartVM.ShoppingCarts);
+                _unitOfWork.Save();
+                // thêm xử lí thông báo
+                TempData["StatusMessage"] = "Thanh toán thành công";
                 //Xử lý thanh toán
 				if (applicationUser.CompanyID.GetValueOrDefault() == 0)
 				{
@@ -174,7 +178,8 @@ namespace BookyStore.Controllers
 					//COMPANY USER
 				}
 
-				return RedirectToAction(nameof(OrderConfirmation), new { id = shoppingCartVM.Order.ID });
+                // RedirectToAction("Index","Payment" ,new { id = shoppingCartVM.Order.ID });
+                return View("Index", "Home");
 			}
            
 			return View("StartOrder",shoppingCartVM);

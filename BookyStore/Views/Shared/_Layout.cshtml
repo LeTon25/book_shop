@@ -28,6 +28,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Quy định</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Order" asp-action="Index">Đơn hàng</a>
+                        </li>
                         @if(User.IsInRole(SD.Role_Admin))
                         {
                             <li class="nav-item dropdown">
@@ -49,7 +52,7 @@
                         }
                         <li class="nav-item">
                             <a class="nav-link text-dard" asp-area="" asp-controller="Cart" asp-action="Index">
-                                <i class="bi bi-cart"></i> &nbsp; (0)
+                                <i class="bi bi-cart"></i> 
                             </a>
                         </li>
                     </ul>

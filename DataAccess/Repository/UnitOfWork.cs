@@ -40,6 +40,10 @@ namespace DataAccess.Repository
             ApplicationUserRepo = new ApplicationUserRepository(_db);   
             OrderDetailRepo = new OrderDetailRepository(_db);
             OrderRepo = new OrderRepository(_db);
+            PaymentRepo = new PaymentRepository(_db);   
+            PaymentDestinationRepo = new PaymentDestinationRepository(_db); 
+            PaymentSignatureRepo = new PaymentSignatureRepository(_db); 
+            PaymentNotificationRepo = new PaymentNotiRepository(_db);
         }
 
         public void Save()

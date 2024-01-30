@@ -1,0 +1,270 @@
+﻿@using Utility;
+@model OrderVM
+<form method="post">
+    <br />
+    <div class="container">
+        <div class="card">
+            <div class="card-header bg-dark text-light ml-0">
+                <div class="container row">
+                    <div class="col-12 d-none d-md-block col-md-6 pb-1">
+                        <i class="fas fa-shopping-cart"></i> &nbsp; Thông tin đơn hàng
+                    </div>
+                    <div class="col-12 col-md-4 offset-md-2 text-right">
+                        <a class="btn btn-outline-info form-control btn-sm">Quay lại danh sách đơn hàng</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container rounded p-2">
+                    <div class="row">
+                        <div class="col-12 col-lg-6 pb-4">
+                            <div class="row">
+                                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="text-primary">Thông tin nhận hàng:</span>
+                                </h4>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Người nhận</div>
+                                <div class="col-9">
+                                    @if(User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee)){
+                                        <input class="form-control" type="text" asp-for="Order.Name"/>
+                                        <span asp-validation-for="Order.Name"></span>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control" readonly type="text" asp-for="Order.Name"/>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">SĐT</div>
+                                <div class="col-9">
+                                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                                    {
+                                        <input class="form-control" type="text" asp-for="Order.PhoneNumber"/>
+                                        <span asp-validation-for="Order.PhoneNumber"></span>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control" readonly type="text" asp-for="Order.PhoneNumber"/>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Đường</div>
+                                <div class="col-9">
+                                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                                    {
+                                        <input class="form-control" type="text" asp-for="Order.StreetAddress"/>
+                                        <span asp-validation-for="Order.StreetAddress"></span>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control" readonly type="text" asp-for="Order.StreetAddress"> 
+                                    }
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Thành phố</div>
+                                <div class="col-9">
+                                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                                    {
+                                        <input class="form-control" type="text" asp-for="Order.City"/>
+                                        <span asp-validation-for="Order.City"></span>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control" readonly type="text" asp-for="Order.City"/>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Huyện</div>
+                                <div class="col-9">
+                                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                                    {
+                                        <input class="form-control" type="text" asp-for="Order.State"/>
+                                        <span asp-validation-for="Order.State"></span>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control" readonly type="text" asp-for="Order.State"/>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Mã bưu điện</div>
+                                <div class="col-9">
+                                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                                    {
+                                        <input class="form-control" type="text" asp-for="Order.PostalCode"/>
+                                        <span asp-validation-for="Order.PostalCode"></span>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control" readonly type="text" asp-for="Order.PostalCode"/>
+                                    }
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Email</div>
+                                <div class="col-9">
+                                        <input class="form-control" readonly type="text" asp-for="Order.ApplicationUser.Email"/>
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Order Date</div>
+                                <div class="col-9">
+                                    <input class="form-control" readonly type="text" asp-for="Order.OrderDate"/>
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Người giao</div>
+                                <div class="col-9">
+                                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                                    {
+                                        <input class="form-control" id="carrier" type="text" asp-for="Order.Carrier" />
+                                        <span asp-validation-for="Order.Carrier"></span>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control" readonly type="text" asp-for="Order.Carrier" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Mã vận chuyển</div>
+                                <div class="col-9">
+                                    @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                                    {
+                                        <input class="form-control" id="tracking" type="text" asp-for="Order.TrackingNumber" />
+                                        <span asp-validation-for="Order.TrackingNumber"></span>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control" readonly type="text" asp-for="Order.TrackingNumber" />
+                                    }
+                                </div>
+                            </div>
+                            <div class="row my-1">
+                                <div class="col-3">Ngày giao</div>
+                                <div class="col-9">
+                                    <input class="form-control" readonly type="text" asp-for="Order.ShippingDate"/>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="row my-1">
+
+                                <div class="col-3">Payment Due Date</div>
+                                <div class="col-9">
+                                    <input type="text" class="form-control" />
+                                </div>
+
+                                <div class="col-3">Payment Date</div>
+                                <div class="col-9">
+                                    <input type="text" class="form-control" />
+                                </div>
+
+                            </div>
+                            -->
+                            <div class="row my-1">
+                                <div class="col-3">Payment Status</div>
+                                <div class="col-9">
+                                    <input class="form-control" readonly type="text" asp-for="Order.PaymentStatus"/>
+
+                                </div>
+                            </div>
+                            @if(User.IsInRole(SD.Role_Admin)|| User.IsInRole(SD.Role_Employee))
+                            {
+                                <button type="submit" class="btn btn-warning form-control my-1">
+                                    Cập nhật đơn hàng
+                                </button>
+                            }
+                        </div>
+                        <div class="col-12 col-lg-5 offset-lg-1">
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-primary">Chi tiết đơn hàng</span>
+                            </h4>
+                            <label class="btn btn-outline-primary form-control my-2">Trạng thái đơn hàng - @Model.Order.OrderStatus</label>
+
+                            <ul class="list-group mb-3">
+                                @foreach(OrderDetail orderDetail in Model.OrderDetails)
+                                {
+                                    <li class="list-group-item d-flex justify-content-between p-2">
+                                        <div class="row container">
+                                            <div class="col-8">
+
+                                                <h6 class="my-0 text-primary">@orderDetail.Product.Title</h6>
+                                                <small class="text-muted">Giá :@orderDetail.Price.ToString("C0") VND</small><br />
+                                                <small class="text-muted">Số lượng : @orderDetail.Count</small>
+                                            </div>
+                                            <div class="col-4 text-end">
+                                                <p class="text-success">@((orderDetail.Count*orderDetail.Price).ToString("C0"))</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                                <li class="list-group-item bg-primary">
+                                    <div class="row container">
+                                        <div class="col-6">
+                                            <h5 class="text-white">Tổng cộng </h5>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <h5 class="text-white">@Model.Order.OrderTotal VND</h5>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            @if(Model.Order.PaymentStatus == SD.PaymentStatusDelayed && Model.Order.OrderStatus == SD.StatusShipped)
+                            {
+                                <button type="submit" class="btn btn-success form-control my-1"> Thanh toán</button>
+                            }
+                            @if(User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+                            {
+                                @if(Model.Order.OrderStatus == SD.StatusApproved)
+                                {
+                                    <button type="submit" asp-action="StartProcess" asp-controller="Order" class="btn btn-success form-control my-1"> Bắt đầu vận chuyển</button>
+
+                                }
+                                @if(Model.Order.OrderStatus == SD.StatusInProcess)
+                                {
+                                    <button type="submit"  asp-action="Shipped" onclick="return kiemTraThongTinVC()" class="btn btn-success form-control my-1"> Đã giao</button>
+                                }
+                                @if(Model.Order.OrderStatus != SD.StatusRefunded && Model.Order.OrderStatus != SD.StatusCancelled && Model.Order.OrderStatus != SD.StatusShipped)
+                                {
+                                    <button type="submit" class="btn btn-success form-control my-1">Hủy đơn hàng</button>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        function kiemTraThongTinVC()
+        {
+            if (document.getElementById("carrier").value=="") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Có lỗi xảy ra',
+                    text: 'Vui lòng nhập tên người vận chuyển'
+                });
+                return false;
+            }
+            if (document.getElementById('tracking').value==""){
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Có lỗi xảy ra',
+                    text: 'Vui lòng nhập mã vẫn chuyển'
+                });
+                return false;
+            }
+          
+            return true;
+        }
+    </script>
+}

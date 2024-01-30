@@ -6,6 +6,7 @@ using Models;
 
 namespace BookyStore.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CompanyController : Controller
     {
         private readonly IUnitOfWork unitOfWork;

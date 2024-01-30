@@ -439,6 +439,10 @@ namespace BookyStore.DataAccess.Migrations
                     b.Property<DateTime?>("ExpireDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("OrderID")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.Property<decimal?>("PaidAmount")
                         .HasColumnType("decimal(18,2)");
 
@@ -473,6 +477,8 @@ namespace BookyStore.DataAccess.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderID");
 
                     b.HasIndex("PaymentDestinationId");
 
@@ -846,9 +852,17 @@ namespace BookyStore.DataAccess.Migrations
 
             modelBuilder.Entity("Models.Payment", b =>
                 {
+                    b.HasOne("Models.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("OrderID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Models.PaymentDestination", "PaymentDestination")
                         .WithMany()
                         .HasForeignKey("PaymentDestinationId");
+
+                    b.Navigation("Order");
 
                     b.Navigation("PaymentDestination");
                 });

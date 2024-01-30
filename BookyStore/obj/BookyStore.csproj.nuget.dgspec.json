@@ -203,7 +203,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Toan\\source\\repos\\BookyStore\\Utility\\Utility.csproj": {
+                "projectPath": "C:\\Users\\Toan\\source\\repos\\BookyStore\\Utility\\Utility.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
