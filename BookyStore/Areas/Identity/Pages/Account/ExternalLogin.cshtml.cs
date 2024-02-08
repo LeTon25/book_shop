@@ -17,6 +17,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel;
+using Models;
+using Utility;
 
 namespace BookyStore.Areas.Identity.Pages.Account
 {
@@ -84,6 +87,20 @@ namespace BookyStore.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+            [Required(ErrorMessage = "Vui lòng nhập họ tên")]
+            [DisplayName("Họ và tên")]
+            public string Name { get; set; }
+            [DisplayName("Tên đường")]
+            public string? StreetAddress { get; set; }
+            [DisplayName("Thành phố")]
+            public string? City { get; set; }
+            [DisplayName("Huyện")]
+            public string? State { get; set; }
+            [DisplayName("Mã bưu điện")]
+            public string? PostalCode { get; set; }
+            [DisplayName("SĐT")]
+            [DataType(DataType.PhoneNumber)]
+            public string? PhoneNumber { get; set; }
         }
         
         public IActionResult OnGet() => RedirectToPage("./Login");
@@ -131,7 +148,8 @@ namespace BookyStore.Areas.Identity.Pages.Account
                 {
                     Input = new InputModel
                     {
-                        Email = info.Principal.FindFirstValue(ClaimTypes.Email)
+                        Email = info.Principal.FindFirstValue(ClaimTypes.Email),
+                        Name = info.Principal.FindFirstValue(ClaimTypes.Name),
                     };
                 }
                 return Page();
@@ -155,6 +173,11 @@ namespace BookyStore.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.StreetAddress = Input.StreetAddress;
+                user.PhoneNumber = Input.PhoneNumber;
+                user.City = Input.City;
+                user.State = Input.State;
+                user.PostalCode = Input.PostalCode; 
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
@@ -162,6 +185,7 @@ namespace BookyStore.Areas.Identity.Pages.Account
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {
+                        await _userManager.AddToRoleAsync(user, SD.Role_Customer);
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
 
                         var userId = await _userManager.GetUserIdAsync(user);
@@ -197,11 +221,11 @@ namespace BookyStore.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private IdentityUser CreateUser()
+        private ApplicationUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<IdentityUser>();
+                return Activator.CreateInstance<ApplicationUser>();
             }
             catch
             {

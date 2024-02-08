@@ -25,5 +25,6 @@ namespace Utility
         public const string PaymentStatusDelayed = "Đang tạm hoãn";
         public const string PaymentStatusRejected = "Bị từ chối";
 
+        public const string CART_KEY = "CART";
     }
 }

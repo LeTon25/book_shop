@@ -19,5 +19,20 @@ namespace DataAccess.Repository
         {
             _db.Update(obj);
         }
+
+        public void UpdateStatus(int ID, string? orderStatus = null, string? paymentStatus = null)
+        {
+           Order order =  _db.Orders.FirstOrDefault(c=>c.ID ==ID);
+           if (orderStatus != null) 
+           {
+                order.OrderStatus = orderStatus; 
+           }
+           if (paymentStatus != null) 
+           {
+                order.PaymentStatus = paymentStatus;
+           }
+            _db.Update(order);
+        }
+
     }
 }

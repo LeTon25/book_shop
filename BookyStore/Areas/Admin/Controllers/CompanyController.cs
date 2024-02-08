@@ -6,6 +6,7 @@ using Models;
 
 namespace BookyStore.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CompanyController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
@@ -46,12 +47,14 @@ namespace BookyStore.Areas.Admin.Controllers
                 {
                     unitOfWork.CompanyRepo.Update(obj);
                     unitOfWork.Save();
+                    TempData["StatusMessage"] = "Cập nhật thông tin thành công";
                     return RedirectToAction("Index");
                 }
                 else
                 {
                     unitOfWork.CompanyRepo.Add(obj);
                     unitOfWork.Save();
+                    TempData["StatusMessage"] = "Thêm thông tin thành công";
                     return RedirectToAction("Index");
                 }
             }
@@ -73,7 +76,7 @@ namespace BookyStore.Areas.Admin.Controllers
             }
             unitOfWork.CompanyRepo.Delete(companyToDelete);
             unitOfWork.Save();
-            return Json(new { success = true, message = "Xóa công ty sản phẩm" });
+            return Json(new { success = true, message = "Xóa công ty thành công" });
         }
         #endregion
 

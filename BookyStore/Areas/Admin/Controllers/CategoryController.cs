@@ -35,16 +35,18 @@ namespace BookyStore.Areas.Admin.Controllers
                 bool isCategoryExist = unitOfWork.CategoryRepo.GetFirstOrDefault(c => c.Name.ToLower().Equals(obj.Name.ToLower())) != null;
                 if (isCategoryExist)
                 {
-                    ModelState.AddModelError("TongHop", "Tên đã có trong hệ thống");
+                    ModelState.AddModelError("Name", "Tên đã có trong hệ thống");
+                    return View(obj);
                 }
                 else
                 {
                     unitOfWork.CategoryRepo.Add(obj);
                     unitOfWork.Save();
+                    TempData["StatusMessage"] = "Thêm thể loại thành công";
                     return RedirectToAction("Index");
                 }
             }
-            return View();
+            return View(obj);
         }
         [HttpGet]
         public IActionResult Edit(int? id)
@@ -76,6 +78,7 @@ namespace BookyStore.Areas.Admin.Controllers
                 {
                     unitOfWork.CategoryRepo.Update(obj);
                     unitOfWork.Save();
+                    TempData["StatusMessage"] = "Cập nhật thể loại thành công";
                     return RedirectToAction("Index");
                 }
             }
@@ -106,6 +109,7 @@ namespace BookyStore.Areas.Admin.Controllers
             }
             unitOfWork.CategoryRepo.Delete(obj);
             unitOfWork.Save();
+            TempData["StatusMessage"] = "Xóa thể loại thành công";
             return RedirectToAction("Index");
         }
     }

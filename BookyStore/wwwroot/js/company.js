@@ -7,10 +7,10 @@ function loadDataTables() {
         "ajax": { url: '/Admin/Company/GetAll' },
         "columns": [
             { data: 'name', "width": "20%" },
-            { data: 'streetaddress', "width": "16%" },
+            { data: 'streetAddress', "width": "16%" },
             { data: 'state', "width": "16%" },
             { data: 'city', "width": "16%" },
-            { data: 'phonenumber', "width": "16%" },
+            { data: 'phoneNumber', "width": "16%" },
             {
                 data: 'id',
                 "render": function (data) {

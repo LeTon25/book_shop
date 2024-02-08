@@ -51,6 +51,7 @@ namespace BookyStore.Controllers
             cartFromDB.Count += 1;
             _unitOfWork.ShoppingCartRepo.Update(cartFromDB);
             _unitOfWork.Save();
+
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
@@ -61,6 +62,7 @@ namespace BookyStore.Controllers
                 return NotFound();
             }
             var cartFromDB = _unitOfWork.ShoppingCartRepo.GetFirstOrDefault(x => x.ID == cartID);
+            var userID = cartFromDB.ApplicationUserId;
             if (cartFromDB == null)
             {
                 return NotFound();
@@ -68,14 +70,16 @@ namespace BookyStore.Controllers
             if (cartFromDB.Count <= 1)
             {
                 _unitOfWork.ShoppingCartRepo.Delete(cartFromDB);
+            
             }
             else
             {
                 cartFromDB.Count -= 1;
                 _unitOfWork.ShoppingCartRepo.Update(cartFromDB);
             }
-           
             _unitOfWork.Save();
+            string count = _unitOfWork.ShoppingCartRepo.GetAll(c => c.ApplicationUserId == userID).Count().ToString();
+            HttpContext.Session.SetString(SD.CART_KEY, count);
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
@@ -86,12 +90,15 @@ namespace BookyStore.Controllers
                 return NotFound();
             }
             var cartFromDB = _unitOfWork.ShoppingCartRepo.GetFirstOrDefault(x => x.ID == cartID);
+            var userID = cartFromDB.ApplicationUserId;
             if (cartFromDB == null)
             {
                 return NotFound();
             }
             _unitOfWork.ShoppingCartRepo.Delete(cartFromDB);
             _unitOfWork.Save();
+            string count = _unitOfWork.ShoppingCartRepo.GetAll(c => c.ApplicationUserId == userID).Count().ToString();
+            HttpContext.Session.SetString(SD.CART_KEY, count);
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
@@ -140,7 +147,7 @@ namespace BookyStore.Controllers
 				{
 					//REGULAR CUSTOMER
 					shoppingCartVM.Order.OrderStatus = SD.StatusPending;
-					shoppingCartVM.Order.PaymentStatus = SD.PaymentStatusPending;
+					shoppingCartVM.Order.PaymentStatus = SD.PaymentStatusApproved;
 				}
 				else
 				{
@@ -164,6 +171,10 @@ namespace BookyStore.Controllers
 					_unitOfWork.OrderDetailRepo.Add(orderDetail);
 					_unitOfWork.Save();
 				}
+                _unitOfWork.ShoppingCartRepo.DeleteRange(shoppingCartVM.ShoppingCarts);
+                _unitOfWork.Save();
+                // thêm xử lí thông báo
+                TempData["StatusMessage"] = "Thanh toán thành công";
                 //Xử lý thanh toán
 				if (applicationUser.CompanyID.GetValueOrDefault() == 0)
 				{
@@ -173,8 +184,7 @@ namespace BookyStore.Controllers
 				{
 					//COMPANY USER
 				}
-
-				return RedirectToAction(nameof(OrderConfirmation), new { id = shoppingCartVM.Order.ID });
+                return View("Index", "Home");
 			}
            
 			return View("StartOrder",shoppingCartVM);

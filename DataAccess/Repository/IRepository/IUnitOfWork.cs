@@ -15,6 +15,11 @@ namespace DataAccess.Repository.IRepository
         IApplicationUserRepository ApplicationUserRepo { get; }
         IOrderDetailRepository OrderDetailRepo { get; }
         IOrderRepository OrderRepo { get; }   
+        IPaymentDestinationRepository PaymentDestinationRepo { get; }
+        IPaymentRepository PaymentRepo { get; }
+        IPaymentTransactionRepository PaymentTransactionRepo { get; }   
+        IPaymentSignatureRepository PaymentSignatureRepo { get; }
+        IPaymentNotificationRepository PaymentNotificationRepo { get; }  
         public void Save();
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Models;
 using System.Diagnostics;
 using System.Security.Claims;
+using Utility;
 
 namespace BookyStore.Controllers
 {
@@ -39,8 +40,7 @@ namespace BookyStore.Controllers
 				ID = 0
 
 			};
-			Console.WriteLine(sp.ID);
-			return View(sp);
+            return View(sp);
 		}
 		[HttpPost]
 		[Authorize]
@@ -60,6 +60,8 @@ namespace BookyStore.Controllers
 				_unitOfWork.ShoppingCartRepo.Update(cartFromDb);
 			}
             _unitOfWork.Save();
+			string count = _unitOfWork.ShoppingCartRepo.GetAll(c => c.ApplicationUserId == userID).Count().ToString();
+			HttpContext.Session.SetString(SD.CART_KEY,count);
 			TempData["StatusMessage"] = "Thêm sản phẩm vào giỏ hàng thành công";
 			return RedirectToAction(nameof(Index));
         }
