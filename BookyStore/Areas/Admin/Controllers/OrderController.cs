@@ -86,7 +86,7 @@ namespace BookyStore.Areas.Admin.Controllers
             unitOfWork.OrderRepo.Update(order);
             unitOfWork.Save();
             // xử lí thông báo
-            TempData["StatusMessage"] = "";
+            TempData["StatusMessage"] = "Cập nhật trạng thái đã giao hàng";
             return RedirectToAction(nameof(ViewDetail), new { orderID = OrderVM.Order.ID });
         }
         [HttpPost]
@@ -99,7 +99,7 @@ namespace BookyStore.Areas.Admin.Controllers
             unitOfWork.Save();
 
             // TO DO : xử lí thông báo
-            TempData["StatusMessage"] = "";
+            TempData["StatusMessage"] = "Cập nhật trạng thái hủy đơn hàn";
 
 			// TO DO : XỬ LÍ hoàn tiền
             return RedirectToAction(nameof(ViewDetail), new { orderID = OrderVM.Order.ID });
@@ -113,7 +113,7 @@ namespace BookyStore.Areas.Admin.Controllers
 			// TO DO : Xử lí thanh toan
 
             // TO DO : xử lí thông báo
-            TempData["StatusMessage"] = "";
+            TempData["StatusMessage"] = "Thanh toán thành công";
 
             // TO DO : XỬ LÍ hoàn tiền
             return RedirectToAction(nameof(ViewDetail), new { orderID = OrderVM.Order.ID });

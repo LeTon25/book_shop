@@ -51,6 +51,7 @@ namespace BookyStore.Controllers
             cartFromDB.Count += 1;
             _unitOfWork.ShoppingCartRepo.Update(cartFromDB);
             _unitOfWork.Save();
+
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
@@ -61,6 +62,7 @@ namespace BookyStore.Controllers
                 return NotFound();
             }
             var cartFromDB = _unitOfWork.ShoppingCartRepo.GetFirstOrDefault(x => x.ID == cartID);
+            var userID = cartFromDB.ApplicationUserId;
             if (cartFromDB == null)
             {
                 return NotFound();
@@ -68,14 +70,16 @@ namespace BookyStore.Controllers
             if (cartFromDB.Count <= 1)
             {
                 _unitOfWork.ShoppingCartRepo.Delete(cartFromDB);
+            
             }
             else
             {
                 cartFromDB.Count -= 1;
                 _unitOfWork.ShoppingCartRepo.Update(cartFromDB);
             }
-           
             _unitOfWork.Save();
+            string count = _unitOfWork.ShoppingCartRepo.GetAll(c => c.ApplicationUserId == userID).Count().ToString();
+            HttpContext.Session.SetString(SD.CART_KEY, count);
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
@@ -86,12 +90,15 @@ namespace BookyStore.Controllers
                 return NotFound();
             }
             var cartFromDB = _unitOfWork.ShoppingCartRepo.GetFirstOrDefault(x => x.ID == cartID);
+            var userID = cartFromDB.ApplicationUserId;
             if (cartFromDB == null)
             {
                 return NotFound();
             }
             _unitOfWork.ShoppingCartRepo.Delete(cartFromDB);
             _unitOfWork.Save();
+            string count = _unitOfWork.ShoppingCartRepo.GetAll(c => c.ApplicationUserId == userID).Count().ToString();
+            HttpContext.Session.SetString(SD.CART_KEY, count);
             return RedirectToAction(nameof(Index));
         }
         [HttpGet]
@@ -177,8 +184,6 @@ namespace BookyStore.Controllers
 				{
 					//COMPANY USER
 				}
-
-                // RedirectToAction("Index","Payment" ,new { id = shoppingCartVM.Order.ID });
                 return View("Index", "Home");
 			}
            

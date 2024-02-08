@@ -15,15 +15,30 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<AppDbContext>(option =>
 	option.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection"))
 );
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(cfg =>
+{
+	cfg.Cookie.Name = "bookystore";
+	cfg.IdleTimeout = new TimeSpan(24, 0, 0);
+});
 VNPayConfig.Initialize(builder.Configuration.GetSection("Vnpay"));
+builder.Services.AddOptions();
+var mailSettings = builder.Configuration.GetSection("MailSettings");
+builder.Services.Configure<MailSettings>(mailSettings);	
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+
 builder.Services.AddIdentity<IdentityUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = $"/Identity/Account/Login";
     options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+});
+builder.Services.AddAuthentication().AddFacebook(option =>
+{
+	option.AppId = builder.Configuration.GetSection("Authentication:Facebook:AppId").Value;
+    option.AppSecret = builder.Configuration.GetSection("Authentication:Facebook:AppSecret").Value;
 });
 var app = builder.Build();
 
@@ -37,7 +52,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

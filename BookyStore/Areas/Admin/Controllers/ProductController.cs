@@ -74,13 +74,15 @@ namespace BookyStore.Areas.Admin.Controllers
 				{
 					unitOfWork.ProductRepo.Update(obj.product);
 					unitOfWork.Save();
-					return RedirectToAction("Index");
+                    TempData["StatusMessage"] = "Cập nhật sản phẩm thành công";
+                    return RedirectToAction("Index");
 				}
 				else
 				{
 					unitOfWork.ProductRepo.Add(obj.product);
 					unitOfWork.Save();
-					return RedirectToAction("Index");
+                    TempData["StatusMessage"] = "Thêm sản phẩm thành công";
+                    return RedirectToAction("Index");
 				}
 			}
 			obj.selectCategoryItems = unitOfWork.CategoryRepo

@@ -26,6 +26,7 @@ namespace BookyStore.Areas.Identity.Pages.Account
         public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();
+            HttpContext.Session.Clear();
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
             {
@@ -33,8 +34,7 @@ namespace BookyStore.Areas.Identity.Pages.Account
             }
             else
             {
-                // This needs to be a redirect so that the browser performs a new
-                // request and the identity for the user gets updated.
+       
                 return RedirectToPage();
             }
         }
