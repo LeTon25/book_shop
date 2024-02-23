@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Hs1LSWGP+xg0HmmD+JDsUa+j0POmDuj5zo5lKIT3UPm00uQQVZ3dRhCxj29o0bqvo6AZJzI0BqqaN5GmlnB3Bw==",
+  "dgSpecHash": "/A3CGVN3iULPaLNGLdk8AfC53+dvJRVrzHomwKOz7Pj2OPEVD8vmzSxuGyApDpLLSG5pHiZ1ZWfKjk40jJd0KA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Toan\\source\\repos\\BookyStore\\BookyStore\\BookyStore.csproj",
+  "projectFilePath": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\BookyStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Toan\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Toan\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

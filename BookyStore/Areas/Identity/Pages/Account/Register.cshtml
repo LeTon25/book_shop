@@ -80,24 +80,24 @@
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                                    <div>
-                                        <p>
-                                            Chưa hỗ trợ đăng nhập bằng bên thứ 3 (Coming Soon)
-                                        </p>
-                                    </div>
+                    <div>
+                        <p>
+                           Chưa hỗ trợ đăng nhập bằng bên thứ 3 (Coming Soon)
+                        </p>
+                    </div>
                 }
                 else
                 {
-                                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                                        <div>
-                                            <p>
-                                                @foreach (var provider in Model.ExternalLogins!)
-                                                    {
-                                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                                    }
-                                            </p>
-                                        </div>
-                                    </form>
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                         <div>
+                              <p>
+                                    @foreach (var provider in Model.ExternalLogins!)
+                                    {
+                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    }
+                              </p>
+                         </div>
+                    </form>
                 }
             }
         </section>

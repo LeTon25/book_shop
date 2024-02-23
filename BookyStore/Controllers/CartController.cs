@@ -174,13 +174,13 @@ namespace BookyStore.Controllers
                 _unitOfWork.ShoppingCartRepo.DeleteRange(shoppingCartVM.ShoppingCarts);
                 _unitOfWork.Save();
                 // thêm xử lí thông báo
-                TempData["StatusMessage"] = "Thanh toán thành công";
                 //Xử lý thanh toán
 				if (applicationUser.CompanyID.GetValueOrDefault() == 0)
 				{
-					//REGULAR CUSTOMER
-				}
-				else
+                    //REGULAR CUSTOMER
+                    TempData["StatusMessage"] = "Thanh toán thành công";
+                }
+                else
 				{
 					//COMPANY USER
 				}

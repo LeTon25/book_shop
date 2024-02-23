@@ -22,7 +22,7 @@ namespace BookyStore.Areas.Admin.Controllers
 		}
 		public IActionResult Index()
 		{
-			var orderList = unitOfWork.OrderRepo.GetAll(includeProperties: "Category").ToList();
+			var orderList = unitOfWork.OrderRepo.GetAll(includeProperties: "ApplicationUser").ToList();
 			return View(orderList);
 		}
 		public IActionResult ViewDetail(int orderID) 

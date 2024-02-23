@@ -16,16 +16,6 @@ $(document).ready(function () {
     }
 })
 function loadDataTables(status) {
-    $.ajax({
-        url: '/Admin/Product/GetAll?status=' + status,
-        type: "GET",
-        susscess: function (data) {
-            console.log(data)
-        },
-        error: function (data) {
-            console.log(data)
-        }
-    })
     dataTable = $("#tblData").DataTable({
         "ajax": { url: '/Admin/Order/GetAll' },
         "columns": [
