@@ -106,13 +106,7 @@ namespace BookyStore.Areas.Identity.Pages.Account
         public async Task OnGetAsync(string returnUrl = null)
         {
 
-            if (!_roleManager.RoleExistsAsync(SD.Role_Customer).GetAwaiter().GetResult())
-            {
-                await _roleManager.CreateAsync(new IdentityRole(SD.Role_Employee));
-                await _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin));
-                await _roleManager.CreateAsync(new IdentityRole(SD.Role_Customer));
-                await _roleManager.CreateAsync(new IdentityRole(SD.Role_Company));
-            }
+            
             Input = new()
             {
                 RoleList = _roleManager.Roles.Select(x => x.Name).Select(i => new SelectListItem
@@ -176,7 +170,7 @@ namespace BookyStore.Areas.Identity.Pages.Account
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl, displayConfirmAccountLink = false });
                     }
                     else
                     {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Ubz70N9D6LT5AU8lIHrXS9DW4H8IZYFSpnWSywB5Wrk=",
+  "Hash": "hKXh4BPnv916NRUGfnt2bHaZIWZENF3XubDBYZ7R0is=",
   "Source": "BookyStore",
   "BasePath": "_content/BookyStore",
   "Mode": "Default",
@@ -1273,6 +1273,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\js\\user.js",
+      "SourceId": "BookyStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
+      "BasePath": "_content/BookyStore",
+      "RelativePath": "js/user.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\user.js"
     },
     {
       "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

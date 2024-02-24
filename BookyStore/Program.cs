@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Utility;
 using Models.VNPay;
-
+using Microsoft.EntityFrameworkCore.Internal;
+using DataAccess.DbInitializer;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -26,7 +27,6 @@ builder.Services.AddOptions();
 var mailSettings = builder.Configuration.GetSection("MailSettings");
 builder.Services.Configure<MailSettings>(mailSettings);	
 builder.Services.AddTransient<IEmailSender, EmailSender>();
-
 builder.Services.AddIdentity<IdentityUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.ConfigureApplicationCookie(options =>
@@ -40,6 +40,8 @@ builder.Services.AddAuthentication().AddFacebook(option =>
 	option.AppId = builder.Configuration.GetSection("Authentication:Facebook:AppId").Value;
     option.AppSecret = builder.Configuration.GetSection("Authentication:Facebook:AppSecret").Value;
 });
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -56,6 +58,7 @@ app.UseSession();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+InitializeDatabase();
 app.MapRazorPages();
 app.MapControllerRoute(
     name: "areas",
@@ -66,3 +69,11 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+ void InitializeDatabase()
+{
+	using (var scope = app.Services.CreateScope())
+	{
+		var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+		dbInitializer.InitializeAsync();
+	}
+}

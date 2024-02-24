@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pPere7nk/lldwGj+bLdmua2KfmBibo4ETX/33KDjlwlJ6M/BFrHftADKeVWgKiD1hVMve4QsiPcNrlQNp1Dp2Q==",
+  "dgSpecHash": "i4HeeBRu+zWYwIHZtRrHycXUwgNfZa4rPA6SdWGREvZiAXzca3oZBCfEG3I7rCDQZgzS27OcApW5MqvpnURxFA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Toan\\source\\repos\\BookyStore\\Models\\Models.csproj",
+  "projectFilePath": "C:\\Users\\Toan\\source\\repos\\book_shop\\Models\\Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Toan\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\Toan\\.nuget\\packages\\mailkit\\4.3.0\\mailkit.4.3.0.nupkg.sha512",

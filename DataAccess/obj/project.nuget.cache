@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Sk14g/qINkuVspAfmcKneJF9CLHLZCF0T4eyGNe0R97niqNDHHAeTA4HHpKXa7dfSSXtGmD4ob5ipVqVfcyiRQ==",
+  "dgSpecHash": "bSK2dBX/x7QV3wAN9tCGTmryNpcfKw2ZXXhfZ6wW3/UhSaKlK/l0fg9LUlWxp3DsPc2vW09m3ynnJ6spLLFq+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Toan\\source\\repos\\BookyStore\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\Toan\\source\\repos\\book_shop\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Toan\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Toan\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

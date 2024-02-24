@@ -8973,11 +8973,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Toan\\source\\repos\\BookyStore\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\Toan\\source\\repos\\book_shop\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\Toan\\source\\repos\\BookyStore\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\Toan\\source\\repos\\book_shop\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\Toan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Toan\\source\\repos\\BookyStore\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\Toan\\source\\repos\\book_shop\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Toan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8994,8 +8994,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Toan\\source\\repos\\BookyStore\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\Toan\\source\\repos\\BookyStore\\Models\\Models.csproj"
+            "C:\\Users\\Toan\\source\\repos\\book_shop\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Toan\\source\\repos\\book_shop\\Models\\Models.csproj"
             }
           }
         }

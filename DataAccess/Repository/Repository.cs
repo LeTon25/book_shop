@@ -37,6 +37,7 @@ namespace DataAccess.Repository
             {
                 query =query.Where(filter);
             }
+          
             if (includeProperties !=  null)
             {
                 foreach (string property in includeProperties.Split(',',StringSplitOptions.RemoveEmptyEntries))
