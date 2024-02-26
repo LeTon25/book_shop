@@ -15,6 +15,7 @@ namespace BookyStore.DataAccess.Data
         public DbSet<Order> Orders { get; set; }    
         public DbSet<OrderDetail> OrderDetails { get; set; }    
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<PaymentDestination> PaymentDestinations { get; set; }
         public DbSet<PaymentSignature > PaymentSignatures { get; set; }
         public DbSet<PaymentTransaction> PaymentTransactions { get; set; }  
@@ -43,7 +44,6 @@ namespace BookyStore.DataAccess.Data
                         Description = "Vì cậu là bạn nhỏ của tớ là cuốn sách đầu tay đánh dấu chặng hành trình phát triển, nỗ lực không ngừng nghỉ của Tác giả, MC, Content Creator Tun Phạm.",
                         ISBN = "SWD9999001",
                         CategoryId = 1,
-                        ImageUrl="",
                     },
                     new Product
                     {
@@ -53,7 +53,6 @@ namespace BookyStore.DataAccess.Data
                         Description = "“Bàn cờ lớn” thể hiện tầm nhìn địa chiến lược táo bạo và khiêu khích của Brzezinski dành cho sự ưu việt của nước Mỹ trong thế kỷ 21",
                         ISBN = "CAW777777701",
                         CategoryId = 2, 
-                        ImageUrl="",
                     },
                     new Product
                     {
@@ -63,7 +62,6 @@ namespace BookyStore.DataAccess.Data
                         Description = "Những cơn gió heo may len lỏi vào từng góc phố nhỏ, mùa thu về gợi nhớ bao yêu thương đong đầy, bao xúc cảm dịu dàng của ký ức. Đó là nỗi nhớ đau đáu những hương vị quen thuộc của đồng nội, là hoài niệm bất chợt khi đi trên con đường cũ in dấu bao kỷ niệm...",
                         ISBN = "RITO5555501",
                         CategoryId=3,
-                        ImageUrl="",
                     },
                     new Product
                     {
@@ -73,7 +71,6 @@ namespace BookyStore.DataAccess.Data
                         Description = "Ghi chép pháp y - Những cái chết bí ẩn là cuốn sách nằm trong hệ liệt với Pháp y Tần Minh - bộ tiểu thuyết nổi đình đám của xứ Trung đã được chuyển thể thành series phim. Cuốn sách tổng hợp những vụ án có thật, được viết bởi bác sĩ pháp y Lưu Hiểu Huy - người có 15 năm kinh nghiệm và từng mổ xẻ hơn 800 tử thi.",
                         ISBN = "WS3333333301",
                         CategoryId =4,
-                        ImageUrl="",
                     }
                 );
             modelBuilder.Entity<Company>().HasData(

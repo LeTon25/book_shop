@@ -14,20 +14,18 @@ namespace DataAccess.Repository
         public ProductRepository(AppDbContext _db) : base(_db) { }
         public void Update(Product product)
         {
-            var productFromDB = base.GetFirstOrDefault(c => c.ID == product.ID);
+            var productFromDB = base.GetFirstOrDefault(c => c.ID == product.ID,includeProperties: "ProductImages");
             if (productFromDB != null) 
-            { 
+            {
                 productFromDB.Title = product.Title;
                 productFromDB.Description = product.Description;
                 productFromDB.ISBN = product.ISBN;
                 productFromDB.Author = product.Author;
                 productFromDB.CategoryId = product.CategoryId;
                 productFromDB.Price = product.Price;
-                if (product.ImageUrl != null)
-                {
-                    productFromDB.ImageUrl = product.ImageUrl;
-                }
+                productFromDB.ProductImages = product.ProductImages;
             }
+            _db.Products.Update(product);   
         }
     }
 }

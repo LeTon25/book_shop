@@ -29,6 +29,7 @@ namespace DataAccess.Repository
 		public IPaymentSignatureRepository PaymentSignatureRepo { get; private set; }
 
 		public IPaymentNotificationRepository PaymentNotificationRepo { get; private set; }
+        public IProductImageRepository ProductImageRepo { get; private set; }   
 
 		public UnitOfWork(AppDbContext db)
         {
@@ -44,6 +45,7 @@ namespace DataAccess.Repository
             PaymentDestinationRepo = new PaymentDestinationRepository(_db); 
             PaymentSignatureRepo = new PaymentSignatureRepository(_db); 
             PaymentNotificationRepo = new PaymentNotiRepository(_db);
+            ProductImageRepo = new ProductImageRepository(_db); 
         }
 
         public void Save()

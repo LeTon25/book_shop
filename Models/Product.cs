@@ -34,10 +34,12 @@ namespace Models
         [ForeignKey("CategoryId")]
         [ValidateNever]
         public Category Category { get; set; }
-        [ValidateNever]
-        public string ImageUrl { get; set; }
         [Required(ErrorMessage ="Vui lòng nhập giá tiền")]
         public decimal Price { get; set; }
+
+        [ValidateNever]
+        [DisplayName("Hình ảnh")]
+        public List<ProductImage>   ProductImages { get; set; }
         
     }
 }

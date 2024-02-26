@@ -20,6 +20,7 @@ namespace DataAccess.Repository.IRepository
         IPaymentTransactionRepository PaymentTransactionRepo { get; }   
         IPaymentSignatureRepository PaymentSignatureRepo { get; }
         IPaymentNotificationRepository PaymentNotificationRepo { get; }  
+        IProductImageRepository ProductImageRepo { get; }
         public void Save();
     }
 }

@@ -14,6 +14,7 @@ namespace DataAccess.Repository.IRepository
         void Add(T entity);
         void Delete(T entity);
         void DeleteRange(IEnumerable<T> entities);
+        void AddRange(List<T> entities);
 
     }
 }

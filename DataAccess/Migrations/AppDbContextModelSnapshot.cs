@@ -648,10 +648,6 @@ namespace BookyStore.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -674,7 +670,6 @@ namespace BookyStore.DataAccess.Migrations
                             CategoryId = 1,
                             Description = "Vì cậu là bạn nhỏ của tớ là cuốn sách đầu tay đánh dấu chặng hành trình phát triển, nỗ lực không ngừng nghỉ của Tác giả, MC, Content Creator Tun Phạm.",
                             ISBN = "SWD9999001",
-                            ImageUrl = "",
                             Price = 0m,
                             Title = "Vì cậu là bạn nhỏ của tớ"
                         },
@@ -685,7 +680,6 @@ namespace BookyStore.DataAccess.Migrations
                             CategoryId = 2,
                             Description = "“Bàn cờ lớn” thể hiện tầm nhìn địa chiến lược táo bạo và khiêu khích của Brzezinski dành cho sự ưu việt của nước Mỹ trong thế kỷ 21",
                             ISBN = "CAW777777701",
-                            ImageUrl = "",
                             Price = 0m,
                             Title = "Bàn cờ lớn"
                         },
@@ -696,7 +690,6 @@ namespace BookyStore.DataAccess.Migrations
                             CategoryId = 3,
                             Description = "Những cơn gió heo may len lỏi vào từng góc phố nhỏ, mùa thu về gợi nhớ bao yêu thương đong đầy, bao xúc cảm dịu dàng của ký ức. Đó là nỗi nhớ đau đáu những hương vị quen thuộc của đồng nội, là hoài niệm bất chợt khi đi trên con đường cũ in dấu bao kỷ niệm...",
                             ISBN = "RITO5555501",
-                            ImageUrl = "",
                             Price = 0m,
                             Title = "Trốn Lên Mái Nhà Để Khóc"
                         },
@@ -707,10 +700,31 @@ namespace BookyStore.DataAccess.Migrations
                             CategoryId = 4,
                             Description = "Ghi chép pháp y - Những cái chết bí ẩn là cuốn sách nằm trong hệ liệt với Pháp y Tần Minh - bộ tiểu thuyết nổi đình đám của xứ Trung đã được chuyển thể thành series phim. Cuốn sách tổng hợp những vụ án có thật, được viết bởi bác sĩ pháp y Lưu Hiểu Huy - người có 15 năm kinh nghiệm và từng mổ xẻ hơn 800 tử thi.",
                             ISBN = "WS3333333301",
-                            ImageUrl = "",
                             Price = 0m,
                             Title = "Ghi chép pháp y - Những cái chết bí ẩn"
                         });
+                });
+
+            modelBuilder.Entity("Models.ProductImage", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("HinhAnhSP");
                 });
 
             modelBuilder.Entity("Models.ShoppingCart", b =>
@@ -748,7 +762,6 @@ namespace BookyStore.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CompanyID")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -905,6 +918,17 @@ namespace BookyStore.DataAccess.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Models.ProductImage", b =>
+                {
+                    b.HasOne("Models.Product", "Product")
+                        .WithMany("ProductImages")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Models.ShoppingCart", b =>
                 {
                     b.HasOne("Models.ApplicationUser", "ApplicationUser")
@@ -928,11 +952,14 @@ namespace BookyStore.DataAccess.Migrations
                 {
                     b.HasOne("Models.Company", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CompanyID");
 
                     b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("Models.Product", b =>
+                {
+                    b.Navigation("ProductImages");
                 });
 #pragma warning restore 612, 618
         }

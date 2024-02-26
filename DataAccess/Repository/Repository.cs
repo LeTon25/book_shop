@@ -20,6 +20,11 @@ namespace DataAccess.Repository
             dbSet.Add(entity);
         }
 
+        public void AddRange(List<T> entities)
+        {
+            dbSet.AddRange(entities);   
+        }
+
         public void Delete(T entity)
         {
             dbSet.Remove(entity);
