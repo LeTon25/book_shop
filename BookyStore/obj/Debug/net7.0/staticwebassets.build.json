@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hKXh4BPnv916NRUGfnt2bHaZIWZENF3XubDBYZ7R0is=",
+  "Hash": "Fn5+FwXIqh9JleGn2ur6c+3pOdMDDZoJsS86FFSDfQ8=",
   "Source": "BookyStore",
   "BasePath": "_content/BookyStore",
   "Mode": "Default",
@@ -1122,12 +1122,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\images\\product\\0f2b2127-e418-487c-9c54-b634fb5056c7.jpg",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\images\\product\\product-3\\1d0d99dd-a655-475b-9e29-0c230f3eff07.png",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "images/product/0f2b2127-e418-487c-9c54-b634fb5056c7.jpg",
+      "RelativePath": "images/product/product-3/1d0d99dd-a655-475b-9e29-0c230f3eff07.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1136,15 +1136,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\product\\0f2b2127-e418-487c-9c54-b634fb5056c7.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\product\\product-3\\1d0d99dd-a655-475b-9e29-0c230f3eff07.png"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\images\\product\\1822a8d9-030f-4779-9dd5-8eec4a377875.jpg",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\images\\product\\product-3\\86595686-5266-498b-9008-6c40c92dfaa8.jpg",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "images/product/1822a8d9-030f-4779-9dd5-8eec4a377875.jpg",
+      "RelativePath": "images/product/product-3/86595686-5266-498b-9008-6c40c92dfaa8.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1153,15 +1153,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\product\\1822a8d9-030f-4779-9dd5-8eec4a377875.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\product\\product-3\\86595686-5266-498b-9008-6c40c92dfaa8.jpg"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\images\\product\\968ddc06-1a15-42b8-8b4c-5ded8cb801dd.jpg",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\images\\product\\product-3\\f871925f-4355-4abc-89d9-31ab1e4b386f.png",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "images/product/968ddc06-1a15-42b8-8b4c-5ded8cb801dd.jpg",
+      "RelativePath": "images/product/product-3/f871925f-4355-4abc-89d9-31ab1e4b386f.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1170,15 +1170,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\product\\968ddc06-1a15-42b8-8b4c-5ded8cb801dd.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\product\\product-3\\f871925f-4355-4abc-89d9-31ab1e4b386f.png"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\images\\product\\970ce0bc-66fd-4bd2-8753-a9301f29e6f7.jpg",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\images\\product\\product-4\\be0410a2-c117-4646-8799-aec2dee06fe0.jpg",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "images/product/970ce0bc-66fd-4bd2-8753-a9301f29e6f7.jpg",
+      "RelativePath": "images/product/product-4/be0410a2-c117-4646-8799-aec2dee06fe0.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1187,24 +1187,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\product\\970ce0bc-66fd-4bd2-8753-a9301f29e6f7.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\images\\product\\c306717a-3411-4eac-9e4e-ee2f8b9d4b10.jpg",
-      "SourceId": "BookyStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
-      "BasePath": "_content/BookyStore",
-      "RelativePath": "images/product/c306717a-3411-4eac-9e4e-ee2f8b9d4b10.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\product\\c306717a-3411-4eac-9e4e-ee2f8b9d4b10.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\product\\product-4\\be0410a2-c117-4646-8799-aec2dee06fe0.jpg"
     },
     {
       "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\js\\company.js",

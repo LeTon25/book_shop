@@ -10,7 +10,6 @@
             <div class="row">
                 <div class="col-10">
                     <input hidden asp-for="product.ID" />
-                    <input hidden asp-for="product.ImageUrl"/>
                     <div asp-validation-summary="ModelOnly"></div>
                     <div class="form-group mb-3">
                         <label asp-for="product.Title" class="p-0"></label>
@@ -46,9 +45,8 @@
                         <span asp-validation-for="product.Price" class="text-danger"></span>
                     </div>
                     <div class="form-group mb-3">
-                        <label asp-for="product.ImageUrl" class="p-0"></label>
-                        <input name="file" type="file" class="form-control" />
-                        <span asp-validation-for="product.ImageUrl" class="text-danger"></span>
+                        <label asp-for="product.ProductImages" class="p-0"></label>
+                        <input name="files" type="file" class="form-control" multiple />
                     </div>
                     <div class="row">
                         <div class="col-6 col-md-3">
@@ -67,7 +65,19 @@
                     </div>
                 </div>
                 <div class="col-2">
-                    <img src="@Model.product.ImageUrl" width="100%" style="border-radius:8px;border:1px solid #bbb9b9;" />
+                    @if (Model.product.ProductImages != null)
+                    {
+                        @foreach(var image in Model.product.ProductImages)
+                        {
+                            <div class="position-relative border border-dark ">
+                                <img src="@image.ImageUrl" width="100%" style="border-radius:8px;border:1px p-1 mt-2 solid #bbb9b9;" />
+                                <a asp-action="DeleteImage" class="rounded-circle  bg-danger position-absolute top-0 start-100 p-1 translate-middle"  style="color:white; text-decoration:none" asp-controller="Product" asp-route-imageid="@image.ID">
+                                    <i class="bi bi-trash3"></i>
+                                </a>
+                            </div>
+                            <hr />
+                        }
+                    }
                 </div>
             </div>
         </div>
@@ -76,18 +86,12 @@
 </form>
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.tiny.cloud/1/wlezu4ewn6yfb6r1g8y2rrkjywbgwle5hmfkwacxgldnbre9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
             selector: 'textarea',
-            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-            mergetags_list: [
-                { value: 'First.Name', title: 'First Name' },
-                { value: 'Email', title: 'Email' },
-            ],
-            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
         });
     </script>
 

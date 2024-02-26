@@ -30,8 +30,10 @@ namespace BookyStore.Controllers
                 ShoppingCarts = _unitOfWork.ShoppingCartRepo.GetAll(x=> x.ApplicationUserId == userId,includeProperties: "Product").ToList(),    
                 Order = new()
             };
+            IEnumerable<ProductImage> productImages = _unitOfWork.ProductImageRepo.GetAll();
             foreach(ShoppingCart shoppingCart in shoppingCartVM.ShoppingCarts)
             {
+                shoppingCart.Product.ProductImages = productImages.Where(c=>c.ProductID == shoppingCart.Product.ID).ToList();
                 shoppingCartVM.Order.OrderTotal += (double)shoppingCart.Product.Price * shoppingCart.Count;
             }
             return View(shoppingCartVM);

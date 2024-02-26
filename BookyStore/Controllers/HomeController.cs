@@ -22,7 +22,7 @@ namespace BookyStore.Controllers
 		
 		public IActionResult Index()
 		{
-			IEnumerable<Product> products = _unitOfWork.ProductRepo.GetAll();	
+			IEnumerable<Product> products = _unitOfWork.ProductRepo.GetAll(includeProperties:"Category,ProductImages");	
 			return View(products);
 		}
 		[HttpGet]
@@ -34,7 +34,7 @@ namespace BookyStore.Controllers
 			}
 			ShoppingCart sp = new ShoppingCart()
 			{
-				Product = _unitOfWork.ProductRepo.GetFirstOrDefault(c => c.ID == id, includeProperties: "Category"),
+				Product = _unitOfWork.ProductRepo.GetFirstOrDefault(c => c.ID == id, includeProperties: "Category,ProductImages"),
 				ProductId = id.Value,
 				Count = 1,
 				ID = 0

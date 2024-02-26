@@ -9,7 +9,14 @@
         {
             <div class="col-md-3 col-sm-6">
                 <div class="card p-3 shadow border-top rounded border-5" style="height:500px">
-                    <img src="@p.ImageUrl" class="cart-img-top" alt="@p.Title" />
+                    @if(p.ProductImages != null && p.ProductImages.Count()>0)
+                    {
+                        <img src="@p.ProductImages.FirstOrDefault().ImageUrl" class="cart-img-top" alt="@p.Title" />
+                    }
+                    else
+                    {
+                        <img src="https://placehold.co/500x600/png" class="cart-img-top" alt="@p.Title" />
+                    }
                     <div class="card-body pb-0 ">
                         <div clas="pl-1">
                             <p class="card-title h5 text-dark opacity-75 text-center">@p.Title</p>
