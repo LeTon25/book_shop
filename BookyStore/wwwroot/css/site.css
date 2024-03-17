@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -32,3 +32,40 @@ input{
 .form-floating > label{
     left:auto;
 }
+/**
+    Sản phẩm ở trang Home
+*/
+.home_product {
+    transition: transform 0.3s ease;
+}
+.home_product:hover {
+    transform: scale(1.05);
+}
+.home_product__img{
+    width:100%;
+    height:auto;
+    aspect-ratio:1/1;
+}
+.home_product__title, .home_product__author {
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: nowrap;
+    -webkit-line-clamp: 1; /* Số dòng tối đa hiển thị */
+    -webkit-box-orient: vertical;
+    line-height: 1.5em; /* Độ cao của mỗi dòng */
+}
+.home_product__btn {
+    background-color: #C92127;
+    color:white;
+}
+    .home_product__btn:hover {
+        color: white;
+        background-color: #ea353b;
+    }
+    .home_product__btn:focus {
+        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ea353b;
+    }
+/* Responsive */
+@media (min-width: 576px) and (max-width: 767px) {
+}
+
