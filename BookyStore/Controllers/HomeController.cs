@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Models;
+using Models.ViewModels;
 using System.Diagnostics;
 using System.Security.Claims;
 using Utility;
@@ -13,6 +14,7 @@ namespace BookyStore.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 		private readonly IUnitOfWork _unitOfWork;
+		private const int ITEM_PER_PAGE = 8;
 
 		public HomeController(ILogger<HomeController> logger,IUnitOfWork unitOfWork)
 		{
@@ -20,10 +22,31 @@ namespace BookyStore.Controllers
 			this._unitOfWork = unitOfWork;
 		}
 		
-		public IActionResult Index()
+		public IActionResult Index(string? search,[FromQuery]int? page)
 		{
-			IEnumerable<Product> products = _unitOfWork.ProductRepo.GetAll(includeProperties:"Category,ProductImages");	
-			return View(products);
+			
+			IEnumerable<Product> products = _unitOfWork.ProductRepo.GetAll(includeProperties:"Category,ProductImages").Skip(2);	
+			int totalProducts = products.Count();
+			int totalPages =(int) Math.Ceiling((double)totalProducts / ITEM_PER_PAGE);
+			if (page == null || page < 1)
+				page = 1;
+			if  (page > totalPages)
+			{
+				page = totalPages;
+			}
+			Console.WriteLine(page);
+			products = products.Skip(ITEM_PER_PAGE * (page.Value-1)).Take(ITEM_PER_PAGE);	
+			HomeModel homeModel = new HomeModel
+			{
+				Products = products,	
+				Paging = new PagingModel
+				{
+					totalPages = totalPages,
+					currentPage = page.Value,
+					urlGenerator = (int? p) => Url.Action("Index","Home",new {page = p})
+				}
+			};
+			return View(homeModel);
 		}
 		[HttpGet]
 		public IActionResult Details(int? id) 

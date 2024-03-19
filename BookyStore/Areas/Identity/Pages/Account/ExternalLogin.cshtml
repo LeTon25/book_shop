@@ -1,21 +1,20 @@
 ﻿@page
 @model ExternalLoginModel
 @{
+    Layout = "/Views/Shared/Authenticate/_LoginLayout.cshtml";
     ViewData["Title"] = "Register";
 }
-<div class="container">
-    <h1>@ViewData["Title"]</h1>
-    <h2 id="external-login-title">Associate your @Model.ProviderDisplayName account.</h2>
-    <hr />
-
+<div class="p-5">
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">@ViewData["Title"]</h1
+        <h2 id="external-login-title">Liên kết tài khoản @Model.ProviderDisplayName</h2>
+    </div>
+    <hr/>
     <p id="external-login-description" class="text-info">
         Bạn đã thành công đăng nhập với <strong>@Model.ProviderDisplayName</strong>.
         Hãy điền vào các thông tin sau để hoàn tất đăng ký
     </p>
-
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                 <div class="form-floating mb-3">
                     <input asp-for="Input.Email" class="form-control" autocomplete="email" placeholder="Vui lòng nhập email" />
@@ -54,11 +53,7 @@
                 </div>
                 <button type="submit" class="w-100 btn btn-lg btn-primary">Đăng ký</button>
             </form>
-        </div>
-    </div>
 </div>
-
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

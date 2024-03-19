@@ -369,6 +369,10 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\font-awesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\lib\\font-awesome\\css\\all.min.css"
+    },
+    {
       "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
@@ -431,6 +435,38 @@
     {
       "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\toastr.js\\toastr.min.js",
       "PackagePath": "staticwebassets\\lib\\toastr.js\\toastr.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\css\\sb-admin-2.css",
+      "PackagePath": "staticwebassets\\sbadmin\\css\\sb-admin-2.css"
+    },
+    {
+      "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\css\\sb-admin-2.min.css",
+      "PackagePath": "staticwebassets\\sbadmin\\css\\sb-admin-2.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\demo\\chart-area-demo.js",
+      "PackagePath": "staticwebassets\\sbadmin\\js\\demo\\chart-area-demo.js"
+    },
+    {
+      "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\demo\\chart-bar-demo.js",
+      "PackagePath": "staticwebassets\\sbadmin\\js\\demo\\chart-bar-demo.js"
+    },
+    {
+      "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\demo\\chart-pie-demo.js",
+      "PackagePath": "staticwebassets\\sbadmin\\js\\demo\\chart-pie-demo.js"
+    },
+    {
+      "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\demo\\datatables-demo.js",
+      "PackagePath": "staticwebassets\\sbadmin\\js\\demo\\datatables-demo.js"
+    },
+    {
+      "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\sb-admin-2.js",
+      "PackagePath": "staticwebassets\\sbadmin\\js\\sb-admin-2.js"
+    },
+    {
+      "Id": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\sb-admin-2.min.js",
+      "PackagePath": "staticwebassets\\sbadmin\\js\\sb-admin-2.min.js"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BookyStore.Microsoft.AspNetCore.StaticWebAssets.props",
