@@ -60,6 +60,7 @@ namespace DataAccess.Repository
             {
                 IQueryable<T> query = dbSet;
                 query = query.Where(filter);
+               
                 if (includeProperties != null)
                 {
                     foreach (string property in includeProperties.Split(',', StringSplitOptions.RemoveEmptyEntries))

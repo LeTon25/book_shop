@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xGeiJ3kuDcsZo1NKTpcKkB1p31wLESlIbMttZQ8xJxc=",
+  "Hash": "ZOMLoq/PLffsMHFNFlQzfUI6N0fl9ZNnpe8+wuKEZRg=",
   "Source": "BookyStore",
   "BasePath": "_content/BookyStore",
   "Mode": "Default",
@@ -2618,23 +2618,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\font-awesome\\css\\all.min.css",
-      "SourceId": "BookyStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
-      "BasePath": "_content/BookyStore",
-      "RelativePath": "lib/font-awesome/css/all.min.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\lib\\font-awesome\\css\\all.min.css"
-    },
-    {
       "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
@@ -2701,6 +2684,91 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\jquery-easing\\jquery.easing.compatibility.js",
+      "SourceId": "BookyStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
+      "BasePath": "_content/BookyStore",
+      "RelativePath": "lib/jquery-easing/jquery.easing.compatibility.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-easing\\jquery.easing.compatibility.js"
+    },
+    {
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\jquery-easing\\jquery.easing.compatibility.min.js",
+      "SourceId": "BookyStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
+      "BasePath": "_content/BookyStore",
+      "RelativePath": "lib/jquery-easing/jquery.easing.compatibility.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-easing\\jquery.easing.compatibility.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\jquery-easing\\jquery.easing.compatibility.min.js.map",
+      "SourceId": "BookyStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
+      "BasePath": "_content/BookyStore",
+      "RelativePath": "lib/jquery-easing/jquery.easing.compatibility.min.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-easing\\jquery.easing.compatibility.min.js.map"
+    },
+    {
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\jquery-easing\\jquery.easing.js",
+      "SourceId": "BookyStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
+      "BasePath": "_content/BookyStore",
+      "RelativePath": "lib/jquery-easing/jquery.easing.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-easing\\jquery.easing.js"
+    },
+    {
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\jquery-easing\\jquery.easing.min.js",
+      "SourceId": "BookyStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
+      "BasePath": "_content/BookyStore",
+      "RelativePath": "lib/jquery-easing/jquery.easing.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery-easing\\jquery.easing.min.js"
     },
     {
       "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
@@ -2907,23 +2975,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\toastr.js\\toastr.min.js"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\css\\sb-admin-2.css",
-      "SourceId": "BookyStore",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
-      "BasePath": "_content/BookyStore",
-      "RelativePath": "sbadmin/css/sb-admin-2.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sbadmin\\css\\sb-admin-2.css"
-    },
-    {
       "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\css\\sb-admin-2.min.css",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
@@ -2941,12 +2992,12 @@
       "OriginalItemSpec": "wwwroot\\sbadmin\\css\\sb-admin-2.min.css"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\demo\\chart-area-demo.js",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\fontawesome\\css\\all.min.css",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "sbadmin/js/demo/chart-area-demo.js",
+      "RelativePath": "sbadmin/fontawesome/css/all.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2955,15 +3006,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\demo\\chart-area-demo.js"
+      "OriginalItemSpec": "wwwroot\\sbadmin\\fontawesome\\css\\all.min.css"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\demo\\chart-bar-demo.js",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\boostrap\\bootstrap.bundle.min.js",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "sbadmin/js/demo/chart-bar-demo.js",
+      "RelativePath": "sbadmin/js/boostrap/bootstrap.bundle.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2972,15 +3023,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\demo\\chart-bar-demo.js"
+      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\boostrap\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\demo\\chart-pie-demo.js",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\boostrap\\bootstrap.bundle.min.js.map",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "sbadmin/js/demo/chart-pie-demo.js",
+      "RelativePath": "sbadmin/js/boostrap/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2989,15 +3040,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\demo\\chart-pie-demo.js"
+      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\boostrap\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\demo\\datatables-demo.js",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\jquery\\jquery.min.js",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "sbadmin/js/demo/datatables-demo.js",
+      "RelativePath": "sbadmin/js/jquery/jquery.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3006,15 +3057,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\demo\\datatables-demo.js"
+      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\jquery\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\sb-admin-2.js",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\jquery\\jquery.min.map",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "sbadmin/js/sb-admin-2.js",
+      "RelativePath": "sbadmin/js/jquery/jquery.min.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3023,15 +3074,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\sb-admin-2.js"
+      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\jquery\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\sb-admin-2.min.js",
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\js\\jquery-easing\\jquery.easing.min.js",
       "SourceId": "BookyStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
       "BasePath": "_content/BookyStore",
-      "RelativePath": "sbadmin/js/sb-admin-2.min.js",
+      "RelativePath": "sbadmin/js/jquery-easing/jquery.easing.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3040,7 +3091,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\sb-admin-2.min.js"
+      "OriginalItemSpec": "wwwroot\\sbadmin\\js\\jquery-easing\\jquery.easing.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\sbadmin\\sb-admin-2.min.js",
+      "SourceId": "BookyStore",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Toan\\source\\repos\\book_shop\\BookyStore\\wwwroot\\",
+      "BasePath": "_content/BookyStore",
+      "RelativePath": "sbadmin/sb-admin-2.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\sbadmin\\sb-admin-2.min.js"
     }
   ]
 }

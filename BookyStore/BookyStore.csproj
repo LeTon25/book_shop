@@ -49,13 +49,4 @@
     <Folder Include="wwwroot\images\product\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\sbadmin\js\demo\chart-area-demo.js" />
-    <None Include="wwwroot\sbadmin\js\demo\chart-bar-demo.js" />
-    <None Include="wwwroot\sbadmin\js\demo\chart-pie-demo.js" />
-    <None Include="wwwroot\sbadmin\js\demo\datatables-demo.js" />
-    <None Include="wwwroot\sbadmin\js\sb-admin-2.js" />
-    <None Include="wwwroot\sbadmin\js\sb-admin-2.min.js" />
-  </ItemGroup>
-
 </Project>

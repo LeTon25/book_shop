@@ -1,28 +1,24 @@
-﻿@{
-    if (ViewData.TryGetValue("ParentLayout", out var parentLayout) && parentLayout !=  null)
+﻿﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
     {
-        Layout = parentLayout.ToString();
+        Layout = (string)parentLayout;
     }
     else
     {
-        Layout = "/Views/Shared/_Layout.cshtml";
+        Layout = "/Views/Shared/Admin/_AdminLayout.cshtml";
     }
+
 }
 
-<h1>Manage your account</h1>
+@RenderBody()
 
-<div>
-    <h2>Change your account settings</h2>
-    <hr />
-    <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav" />
-        </div>
-        <div class="col-md-9">
-            @RenderBody()
-        </div>
-    </div>
-</div>
+@section TopBar {
+    @await Html.PartialAsync("/Views/Shared/Admin/_TopBar.cshtml")
+}
+
+@section SideBar {
+    <partial name="/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" />
+}
 
 @section Scripts {
     @RenderSection("Scripts", required: false)
