@@ -1,0 +1,26 @@
+﻿<div class="container">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2>Danh sách các bộ sách</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-success" asp-area="Admin" asp-controller="Collection" asp-action="Upsert">
+                <i class="bi bi-plus-circle"></i>
+                Tạo mới
+            </a>
+        </div>
+    </div>
+</div>
+<table id="tblCollection" class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Mã bộ</th>
+            <th>Tên bộ</th>
+            <th>Hình ảnh</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+</table>
+@section Scripts{
+    <script src="~/js/collection.js"></script>
+}

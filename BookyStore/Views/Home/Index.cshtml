@@ -1,0 +1,48 @@
+﻿@model HomeModel
+@{
+    ViewData["Title"] = "Booky-Trang chủ";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach(Product p in Model.Products)
+        {
+            <div class="col-md-6 col-sm-12 col-lg-3 home_product mt-4">
+                <div class="card p-3 border-top rounded shadow" >
+                    @if(p.ProductImages != null && p.ProductImages.Count()>0)
+                    {
+                        <img src="@p.ProductImages.FirstOrDefault().ImageUrl" class="cart-img-top home_product__img" alt="@p.Title" />
+                    }
+                    else
+                    {
+                        <img src="" class="cart-img-top home_product__img" alt="@p.Title" />
+                    }
+                    <div class="card-body pb-0 ">
+                        <div clas="pl-1">
+                            <p class="card-title  h5 text-dark opacity-75 text-center home_product__title">@p.Title</p>
+                            <p class="card-title text-warning text-center">by <b class="home_product__author">@p.Author</b></p>
+                        </div>
+                        <div class="pl-1">
+                            <p class="text-dark opacity-75 text-center">@p.Price.ToString("c")</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-action="Details" asp-controller="Home" asp-route-id="@p.ID" class="btn bg-gradient border-0 form-control home_product__btn">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12 d-flex justify-content-center align-items-center">
+               <partial name="_Paging" model="@Model.Paging" />
+        </div>
+    </div>
+</div>
+
+
+
+
+

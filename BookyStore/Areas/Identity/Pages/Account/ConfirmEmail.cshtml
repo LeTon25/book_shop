@@ -1,0 +1,12 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    Layout = "/Views/Shared/Authenticate/_LoginLayout.cshtml";
+    ViewData["Title"] = "Xác nhận email";
+}
+<div class="p-5">
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">@ViewData["Title"]</h1>
+        <partial name="_StatusMessage" model="Model.StatusMessage" />
+    </div>
+</div>

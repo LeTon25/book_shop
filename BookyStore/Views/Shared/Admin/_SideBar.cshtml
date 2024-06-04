@@ -1,0 +1,98 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+    string activeController = System.IO.Path.GetFileNameWithoutExtension(ViewContext.ActionDescriptor.DisplayName);
+    Func<string, string, string> ActiveClass = (string activeController, string controller) =>
+    {
+        return (activeController.Contains(controller)) ? "active" : "";
+    };
+    var user = await UserManager.GetUserAsync(User);
+    IList<string> roles = new List<string>();
+    if (user != null)
+    {
+        roles = await UserManager.GetRolesAsync(user);
+        
+    }
+}
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center"
+       asp-action="Index" asp-controller="Home" asp-area="">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">BookyStore</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Heading -->
+    <div class="sidebar-heading mt-2">
+        Quản lý
+    </div>
+    @if (@roles.Any(r => r == SD.Role_Admin))
+    {
+        <li class="nav-item @ActiveClass(activeController,"CategoryController")">
+            <a class="nav-link " asp-action="Index" asp-controller="Category" asp-area="Admin">
+                <i class="fa-solid fa-filter"></i>
+                <span>
+                    Thể loại
+                </span>
+            </a>
+        </li>
+
+        <li class="nav-item @ActiveClass(activeController,"ProductController")">
+            <a class="nav-link" asp-action="Index" asp-controller="Product" asp-area="Admin">
+                <i class="fa-solid fa-book"></i>
+                <span>
+                    Sách
+                </span>
+            </a>
+        </li>
+        <li class="nav-item @ActiveClass(activeController,"CollectionController")">
+            <a class="nav-link" asp-action="Index" asp-controller="Collection" asp-area="Admin">
+                <i class="fa-brands fa-stack-exchange"></i>
+                <span>
+                    Bộ sách
+                </span>
+            </a>
+        </li>
+        <li class="nav-item @ActiveClass(activeController,"UserController")">
+            <a class="nav-link" asp-action="Index" asp-controller="User" asp-area="Admin">
+                <i class="fa-solid fa-user"></i>
+                <span>
+                    Người dùng
+                </span>
+            </a>
+        </li>
+        <li class="nav-item @ActiveClass(activeController,"PublisherController")">
+            <a class="nav-link" asp-action="Index" asp-controller="Publisher" asp-area="Admin">
+                <i class="fa-solid fa-industry"></i>
+                <span>
+                    Nhà xuất bản
+                </span>
+            </a>
+        </li>
+
+    }
+    <li class="nav-item @ActiveClass(activeController,"OrderController")">
+        <a class="nav-link" asp-action="Index" asp-controller="Order" asp-area="Admin">
+            <i class="fa-solid fa-receipt"></i>
+            <span>
+                Đơn hàng
+            </span>
+        </a>
+    </li>
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+</ul>
+<!-- End of Sidebar -->

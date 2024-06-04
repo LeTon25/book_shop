@@ -1,0 +1,15 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    Layout = "/Views/Shared/Authenticate/_LoginLayout.cshtml";
+    ViewData["Title"] = "Từ chối truy cập";
+}
+<div class="p-5">
+    <div class="text-center">
+        <header>
+            <h1 class="text-danger">@ViewData["Title"]</h1>
+            <p class="text-danger">Bạn không có quyền truy cập trang này</p>
+        </header>
+    </div>
+</div>
+

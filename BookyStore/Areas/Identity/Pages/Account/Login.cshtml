@@ -1,0 +1,74 @@
+﻿@page
+@model LoginModel
+
+@{
+    Layout = "/Views/Shared/Authenticate/_LoginLayout.cshtml";
+    ViewData["Title"] = "Đăng nhập";
+}
+<div class="p-5">
+    <div class="text-center">
+        <h1 class="h4 text-gray-900 mb-4">@ViewData["Title"]</h1>
+    </div>
+    <form id="account" method="post">
+        <h2>Dùng tài khoản để nhập</h2>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+        <div class="form-floating mb-3">
+            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+            <label asp-for="Input.Email" class="form-label">Email</label>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+            <label asp-for="Input.Password" class="form-label">Password</label>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="checkbox mb-3">
+            <label asp-for="Input.RememberMe" class="form-label">
+                <input class="form-check-input" asp-for="Input.RememberMe" />
+                @Html.DisplayNameFor(m => m.Input.RememberMe)
+            </label>
+        </div>
+        <div>
+            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Đăng nhập</button>
+        </div>
+        <hr />
+        @if ((Model.ExternalLogins?.Count ?? 0) != 0)
+        {
+            <form id="external-account" asp-page="./ExternalLogin"
+                  asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                @foreach (var provider in Model.ExternalLogins)
+                {
+                    string classiconprovider = "";
+                    string classprovider = "";
+                    if (provider.DisplayName == "Google")
+                    {
+                        classprovider = "btn-google";
+                        classiconprovider = "fab fa-google fa-fw";
+                    }
+                    else if (provider.DisplayName == "Facebook")
+                    {
+                        classprovider = "btn-facebook";
+                        classiconprovider = "fab fa-facebook-f fa-fw";
+                    }
+                    <button type="submit" class="btn @classprovider btn-user btn-block"
+                            name="provider" value="@provider.Name"
+                            title="Log in using your @provider.DisplayName account">
+                        <i class="@classiconprovider"></i>
+                        Đăng nhập bằng @provider.DisplayName
+                    </button>
+                }
+            </form>
+
+        }
+    </form>
+    <div class="text-center">
+        <a class="small" id="forgot-password" asp-page="./ForgotPassword">Bạn quyên mật khẩu?</a>
+    </div>
+    <div class="text-center">
+        <a class="small" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Chưa có tài khoản, đăng ký mới</a>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

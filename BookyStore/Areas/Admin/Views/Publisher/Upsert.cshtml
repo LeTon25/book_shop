@@ -1,0 +1,53 @@
+﻿@model Publisher;
+<form method="post" enctype="multipart/form-data">
+
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-dark"> @(Model.ID != 0 ? "Cập nhật sách" : "Thêm sách mới")</h2>
+            <hr />
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <input hidden asp-for="ID" />
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="p-0"></label>
+                        <input asp-for="Name" type="text" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Address" class="p-0">Mô tả</label>
+                        <textarea asp-for="Address" type="text" class="form-control"></textarea>
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="PhoneNumber" class="p-0"></label>
+                        <input asp-for="PhoneNumber" type="text" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            @if (Model.ID != 0)
+                            {
+                                <button type="submit" class="btn btn-primary btn-warning" style="width:150px">Chỉnh sửa</button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-primary btn-success" style="width:150px">Tạo mới</button>
+                            }
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a asp-controller="Publisher" asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

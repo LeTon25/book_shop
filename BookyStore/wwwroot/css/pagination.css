@@ -1,0 +1,51 @@
+﻿/**
+    Pagination
+*/
+.pagination {
+    display: flex;
+    column-gap: 1.2rem;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+
+.pagination-item {
+    box-sizing: border-box;
+    padding: 0.8rem;
+    height: 100%;
+    border: solid 0.1rem #e9e9e9;
+    border-radius: 2rem;
+    flex-shrink: 0;
+    background-color: white;
+}
+
+    .pagination-item.active {
+        background-color: #C92127;
+        color: white;
+    }
+
+        .pagination-item.active .pagination-item__link {
+            color: white;
+        }
+
+.pagination-item__link {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.pagination-item:hover {
+    color: white;
+    background-color: #C92127;
+}
+
+    .pagination-item:hover .pagination-item__link {
+        color: white;
+    }
+/***/
+
+/*** Pagination create by jQuery.dataTables ***/
+
+/***/

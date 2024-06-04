@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+
+@RenderBody()
+@section TopBar {
+    @await Html.PartialAsync("/Views/Shared/Admin/_TopBar.cshtml")
+}
+
+@section SideBar {
+    @await Html.PartialAsync("/Views/Shared/Admin/_SideBar.cshtml")
+}
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

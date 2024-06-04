@@ -1,0 +1,95 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+input{
+    padding-left:8px;
+}
+.toast-containers {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    z-index:1000;
+}
+.form-floating > label{
+    left:auto;
+}
+/**
+    Sản phẩm ở trang Home
+*/
+.home_product {
+    transition: transform 0.3s ease;
+}
+.home_product:hover {
+    transform: scale(1.05);
+}
+.home_product__img{
+    width:100%;
+    height:auto;
+    aspect-ratio:1/1;
+}
+.home_product__title, .home_product__author {
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: nowrap;
+    -webkit-line-clamp: 1; /* Số dòng tối đa hiển thị */
+    -webkit-box-orient: vertical;
+    line-height: 1.5em; /* Độ cao của mỗi dòng */
+}
+.home_product__btn {
+    background-color: #C92127;
+    color:white;
+}
+    .home_product__btn:hover {
+        color: white;
+        background-color: #ea353b;
+    }
+    .home_product__btn:focus {
+        box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #ea353b;
+    }
+    /* Responsive */
+    @media (min-width: 576px) and (max-width: 767px) {
+    }
+
+.js--image-preview {
+    height: 200px;
+    width: 400px;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.datatable-img {
+    width: 100px; /* Đặt chiều rộng của hình ảnh */
+    height: auto; /* Tự động điều chỉnh chiều cao để giữ tỷ lệ */
+    display: block;
+    margin: 0 auto; /* Canh giữa hình ảnh */
+}
+
+.preview-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

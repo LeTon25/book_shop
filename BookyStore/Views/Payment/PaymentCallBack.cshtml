@@ -1,0 +1,30 @@
+﻿@model PaymentResponseModel;
+
+<div class="d-flex justify-content-center align-items-center p-5">
+    <h2 class="text-success">
+        @if(Model.Success)
+        {
+            <p>Thanh toán thành công</p>
+        }
+        else
+        {
+            <p>Thanh toán thất bại</p>
+        }
+    </h2>
+    <br/>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>Mã đơn hàng</td>
+            <td>@Model.OrderId</td>
+        </tr>
+        <tr>
+            <td>Nội dung</td>
+            <td>@Model.OrderDescription</td>
+        </tr>
+        <tr>
+            <td>Tham chiếu thanh toán</td>
+            <td>@Model.TransactionId</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,123 @@
+﻿@model ProductVM;
+<form method="post" enctype="multipart/form-data">
+
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-dark"> @(Model.product.ID != 0 ? "Cập nhật sách" : "Thêm sách mới")</h2>
+            <hr />
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-10">
+                    <input hidden asp-for="product.ID" />
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="form-group mb-3">
+                        <label asp-for="product.Title" class="p-0"></label>
+                        <input asp-for="product.Title" type="text" class="form-control" />
+                        <span asp-validation-for="product.Title" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="product.Description" class="p-0">Mô tả</label>
+                        <textarea asp-for="product.Description" type="text" class="form-control"></textarea>
+                        <span asp-validation-for="product.Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="product.Author" class="p-0"></label>
+                        <input asp-for="product.Author" type="text" class="form-control" />
+                        <span asp-validation-for="product.Author" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="product.Price" class="p-0"></label>
+                        <input asp-for="product.Price" type="text" class="form-control" />
+                        <span asp-validation-for="product.Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="product.Stock" class="p-0"></label>
+                        <input asp-for="product.Stock" type="number" class="form-control" />
+                        <span asp-validation-for="product.Stock" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="product.ProductCategories" class="p-0"></label>
+                        <div class="row">
+                            @{
+                                bool check = false;
+                            }
+                            @foreach (var category in Model.selectCategoryItems)
+                            {
+                                check = Model.product.ProductCategories.FirstOrDefault(c => c.CategoryID == category.ID)!= null ? true : false;
+                                <div class="col-3">
+                                    <input type="checkbox" name="categoryIds" @(check ? "checked" : "") value="@category.ID" />
+                                    <label>@category.Name</label>
+                                </div>
+                            }
+                            <span asp-validation-for="product.ProductCategories" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="product.CollectionID" class="p-0"></label>
+                        <select class="form-control" asp-items="@Model.selectCollectionItems" asp-for="product.CollectionID">
+                            <option disabled selected>Lựa chọn bộ</option>
+                        </select>
+                        <span asp-validation-for="product.CollectionID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="product.PublisherID" class="p-0"></label>
+                        <select class="form-control" asp-items="@Model.selectPublisherItems" asp-for="product.PublisherID">
+                            <option disabled selected>Lựa chọn nhà xuất bản</option>
+                        </select>
+                        <span asp-validation-for="product.PublisherID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="product.ProductImages" class="p-0"></label>
+                        <input name="files" type="file" class="form-control" multiple />
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            @if (Model.product.ID != 0)
+                            {
+                                <button type="submit" class="btn btn-primary btn-warning" style="width:150px">Chỉnh sửa</button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-primary btn-success" style="width:150px">Tạo mới</button>
+                            }
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    @if (Model.product.ProductImages != null)
+                    {
+                        @foreach(var image in Model.product.ProductImages)
+                        {
+                            <div class="position-relative border border-dark ">
+                                <img src="@image.ImageUrl" width="100%" style="border-radius:8px;border:1px p-1 mt-2 solid #bbb9b9;" />
+                                <a asp-action="DeleteImage" class="rounded-circle  bg-danger position-absolute top-0 start-100 p-1 translate-middle"  style="color:white; text-decoration:none" asp-controller="Product" asp-route-imageid="@image.ID">
+                                    <i class="bi bi-trash3"></i>
+                                </a>
+                            </div>
+                            <hr />
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+     
+    </div>
+</form>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdn.tiny.cloud/1/wlezu4ewn6yfb6r1g8y2rrkjywbgwle5hmfkwacxgldnbre9/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
+    </script>
+
+}
