@@ -43,7 +43,7 @@ namespace BookyStore.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                return NotFound($"Unable to load user with email '{email}'.");
+                return NotFound($"Không thể tìm thấy người dùng với Email '{email}'.");
             }
 
             Email = email;

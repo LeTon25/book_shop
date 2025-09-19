@@ -30,7 +30,9 @@ builder.Services.AddOptions();
 var mailSettings = builder.Configuration.GetSection("MailSettings");
 builder.Services.Configure<MailSettings>(mailSettings);	
 builder.Services.AddTransient<IEmailSender, EmailSender>();
-builder.Services.AddIdentity<ApplicationUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<ApplicationUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+		.AddEntityFrameworkStores<AppDbContext>()
+		.AddDefaultTokenProviders();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.ConfigureApplicationCookie(options =>
 {

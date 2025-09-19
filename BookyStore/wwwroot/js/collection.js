@@ -3,16 +3,6 @@ $(document).ready(function () {
     loadDataTables();
 })
 function loadDataTables() {
-    $.ajax({
-        url: '/Admin/Collection/GetAll',
-        type: "GET",
-        susscess: function (data) {
-            console.log(data)
-        },
-        error: function (data) {
-            console.log(data)
-        }
-    })
     dataTable = $("#tblCollection").DataTable({
         "ajax": { url: '/Admin/Collection/GetAll' },
         "language": {

@@ -30,29 +30,12 @@ namespace BookyStore.Areas.Identity.Pages.Account
             _logger = logger;
         }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+
         [BindProperty]
         public InputModel Input { get; set; }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public string ReturnUrl { get; set; }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [BindProperty]
             [Required]
             [DataType(DataType.Text)]
@@ -62,7 +45,6 @@ namespace BookyStore.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnGetAsync(string returnUrl = null)
         {
-            // Ensure the user has gone through the username & password screen first
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
@@ -106,7 +88,7 @@ namespace BookyStore.Areas.Identity.Pages.Account
             else
             {
                 _logger.LogWarning("Invalid recovery code entered for user with ID '{UserId}' ", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid recovery code entered.");
+                ModelState.AddModelError(string.Empty, "Mã nhập không chính xác");
                 return Page();
             }
         }

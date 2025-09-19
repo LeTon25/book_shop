@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,12 +32,14 @@ namespace DataAccess.DbInitializer
                 {
                     _db.Database.Migrate();
                 }
+                
+                // Initialize roles and admin user if they don't exist
                 if (!_roleManager.RoleExistsAsync(SD.Role_Customer).GetAwaiter().GetResult())
                 {
-                     _roleManager.CreateAsync(new IdentityRole(SD.Role_Employee)).GetAwaiter().GetResult();
-                     _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin)).GetAwaiter().GetResult();
-                     _roleManager.CreateAsync(new IdentityRole(SD.Role_Customer)).GetAwaiter().GetResult();
-                     _userManager.CreateAsync(new ApplicationUser
+                    _roleManager.CreateAsync(new IdentityRole(SD.Role_Employee)).GetAwaiter().GetResult();
+                    _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin)).GetAwaiter().GetResult();
+                    _roleManager.CreateAsync(new IdentityRole(SD.Role_Customer)).GetAwaiter().GetResult();
+                    _userManager.CreateAsync(new ApplicationUser
                     {
                         UserName = "admin",
                         Email = "admin123@gmail.com",
@@ -46,9 +49,10 @@ namespace DataAccess.DbInitializer
                         PostalCode = "12345",
                         City = "TPHCM",
                         State = "Nhà Bè",
-                    }).GetAwaiter().GetResult();
+                    },"Admin@1234").GetAwaiter().GetResult();
+
                     var user = _db.ApplicationUsers.FirstOrDefault(u => u.Email == "admin123@gmail.com");
-                     _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
+                    _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
                 }
             }
             catch (Exception ex) 
@@ -56,6 +60,6 @@ namespace DataAccess.DbInitializer
                 // Log exception
             }
         }
-
+  
     }
 }

@@ -28,24 +28,11 @@ namespace BookyStore.Areas.Identity.Pages.Account
             _userManager = userManager;
             _emailSender = emailSender;
         }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [Required]
             [EmailAddress]
             public string Email { get; set; }
@@ -65,7 +52,7 @@ namespace BookyStore.Areas.Identity.Pages.Account
             var user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
             {
-                ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
+                ModelState.AddModelError(string.Empty, "Mail xác nhận đã được gửi vui lòng kiểm tra email");
                 return Page();
             }
 
@@ -79,10 +66,10 @@ namespace BookyStore.Areas.Identity.Pages.Account
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
                 Input.Email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                "Xác nhận Email",
+                $"Vui lòng xác nhận Email qua : by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-            ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
+            ModelState.AddModelError(string.Empty, "Mail xác nhận đã được gửi vui lòng kiểm tra email");
             return Page();
         }
     }

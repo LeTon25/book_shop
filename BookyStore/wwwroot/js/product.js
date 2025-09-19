@@ -4,13 +4,6 @@ $(document).ready(function () {
     loadDataTables();
 })
 function loadDataTables() {
-    $.ajax({
-        url: "/Admin/Product/GetAll",
-        type: "GET",
-        success: function (data) {
-            console.log(data);
-        }
-    })
     dataTable = $("#tblData").DataTable({
         "ajax": { url: '/Admin/Product/GetAll' },
         "language": {
