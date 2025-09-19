@@ -17,7 +17,7 @@ namespace BookyStore.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.15")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -88,7 +88,8 @@ namespace BookyStore.DataAccess.Migrations
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(21)
+                        .HasColumnType("nvarchar(21)");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -142,7 +143,7 @@ namespace BookyStore.DataAccess.Migrations
 
                     b.ToTable("Users", (string)null);
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
+                    b.HasDiscriminator().HasValue("IdentityUser");
 
                     b.UseTphMappingStrategy();
                 });

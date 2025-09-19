@@ -50,12 +50,12 @@ namespace DataAccess.DbInitializer
                     var user = _db.ApplicationUsers.FirstOrDefault(u => u.Email == "admin123@gmail.com");
                      _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
                 }
-                
             }
             catch (Exception ex) 
             {
-            
+                // Log exception
             }
         }
+
     }
 }

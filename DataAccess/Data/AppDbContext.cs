@@ -16,6 +16,7 @@ namespace BookyStore.DataAccess.Data
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Collection> Collections { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
+		public DbSet<Publisher> Publishers { get; set; }
 		public AppDbContext(DbContextOptions<AppDbContext> options): base(options) 
 		{
 

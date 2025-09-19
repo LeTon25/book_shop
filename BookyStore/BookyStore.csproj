@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>8193b6fe-c58f-4af1-948c-526c0f8780e2</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,34 +12,38 @@
     <Compile Remove="Areas\Admin\Models\**" />
     <Compile Remove="Areas\Customer\**" />
     <Compile Remove="Areas\Identity\Data\**" />
+    <Compile Remove="wwwroot\lib\**" />
     <Content Remove="Areas\Admin\Data\**" />
     <Content Remove="Areas\Admin\Models\**" />
     <Content Remove="Areas\Customer\**" />
     <Content Remove="Areas\Identity\Data\**" />
+    <Content Remove="wwwroot\lib\**" />
     <EmbeddedResource Remove="Areas\Admin\Data\**" />
     <EmbeddedResource Remove="Areas\Admin\Models\**" />
     <EmbeddedResource Remove="Areas\Customer\**" />
     <EmbeddedResource Remove="Areas\Identity\Data\**" />
+    <EmbeddedResource Remove="wwwroot\lib\**" />
     <None Remove="Areas\Admin\Data\**" />
     <None Remove="Areas\Admin\Models\**" />
     <None Remove="Areas\Customer\**" />
     <None Remove="Areas\Identity\Data\**" />
+    <None Remove="wwwroot\lib\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hangfire" Version="1.8.12" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="7.0.15" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.15" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.15">
+    <PackageReference Include="Hangfire" Version="1.8.21" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.11" />
-    <PackageReference Include="RestSharp" Version="111.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,7 +54,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\product\" />
-    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
 </Project>

@@ -38,11 +38,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
-builder.Services.AddAuthentication().AddFacebook(option =>
-{
-	option.AppId = builder.Configuration.GetSection("Authentication:Facebook:AppId").Value;
-    option.AppSecret = builder.Configuration.GetSection("Authentication:Facebook:AppSecret").Value;
-});
+builder.Services.AddAuthentication();
 builder.Services.AddHangfire(configure => configure
 		.SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
 		.UseSimpleAssemblyNameTypeSerializer()
@@ -83,7 +79,7 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
- void InitializeDatabase()
+void InitializeDatabase()
 {
 	using (var scope = app.Services.CreateScope())
 	{
